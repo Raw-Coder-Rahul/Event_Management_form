@@ -26,7 +26,7 @@ if (data.length === 0) {
             date: formattedDate,
             description: `Description for Event ${i + 1}`,
             image: null,
-            participants: Math.floor(Math.random() * 100) + 1 // Dummy participant count
+            participants: Math.floor(Math.random() * 100) + 1
         });
     }
     localStorage.setItem("data", JSON.stringify(data));
@@ -70,7 +70,7 @@ let formValidation = () => {
         showNotification("Event added successfully!", "success");
         console.log("Validation success");
         acceptData();
-        add.setAttribute("data-bs-dismiss", "modal"); // Dismiss modal
+        add.setAttribute("data-bs-dismiss", "modal");
         add.click();
     }
 };
@@ -123,7 +123,7 @@ let acceptData = () => {
 
 // Render tasks dynamically
 let createTasks = () => {
-    tasks.innerHTML = ""; // Clear task list
+    tasks.innerHTML = "";
     data.forEach((task, index) => {
         tasks.innerHTML += `
         <div id="${index}" class="task-box p-3 border rounded mb-3">
@@ -172,10 +172,10 @@ function closeModal(button) {
 
 // Delete task by index
 let deleteTask = (index) => {
-    data.splice(index, 1); // Remove task from data array
-    localStorage.setItem("data", JSON.stringify(data)); // Update localStorage
+    data.splice(index, 1);
+    localStorage.setItem("data", JSON.stringify(data)); 
     console.log(data);
-    createTasks(); // Refresh task list
+    createTasks();
     showNotification("Task deleted successfully!", "success");
 };
 
@@ -189,7 +189,7 @@ let editTask = (index) => {
     textarea.value = selectedTask.description;
     participantsInput.value = selectedTask.participants;
 
-    deleteTask(index); // Remove old task
+    deleteTask(index);
 };
 
 // Reset form inputs and validation messages
@@ -201,11 +201,11 @@ let resetForm = () => {
     textarea.value = "";
     imageInput.value = "";
     participantsInput.value = "";
-    msg.innerHTML = ""; // Clear validation message
+    msg.innerHTML = "";
 };
 
 // Render tasks on page load
 (() => {
-    createTasks(); // Load tasks from localStorage
-    console.log(data); // Debugging
+    createTasks();
+    console.log(data);
 })();
