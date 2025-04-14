@@ -1,0 +1,879 @@
+/* General Styles */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Gradient Background */
+body {
+    background: linear-gradient(120deg, #f2f2f2, #d8dee9);
+    background-attachment: fixed;
+    transition: background 0.5s ease-in-out;
+}
+
+/* Header Section */
+header {
+    background: linear-gradient(to right, #000000, #c0bfcc);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-bottom: 3px solid #bb6d0d;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-item {
+    list-style: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0 15px;
+    transition: all 0.3s ease;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ffbf00;
+    text-shadow: 0 0 5px #ffbf00;
+}
+
+/* Responsive Navigation Bar */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-item {
+        padding: 10px 0;
+    }
+}
+
+/* Card Container */
+.app {
+    width: 90%;
+    min-height: 65vh;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    overflow-y: auto;
+    margin: 30px auto;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Scrollbar Customization */
+.app::-webkit-scrollbar {
+    width: 8px;
+}
+
+.app::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #00ffe5, #c0bfcc);
+    border-radius: 10px;
+}
+
+/* Cards */
+#tasks {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+#tasks div {
+    background: linear-gradient(150deg, #00ffe5, #c0bfcc);
+    border: 3px solid #bb6d0d;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#tasks div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal */
+.modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.modal-header {
+    background: linear-gradient(to right, #4d79ff, #1a53ff);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid #bb6d0d;
+    padding: 10px 20px;
+}
+
+.modal-body {
+    padding: 20px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.modal-footer button {
+    background: linear-gradient(to right, #ffbf00, #ff5050);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.modal-footer button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Input Fields */
+.modal-body input,
+.modal-body select,
+.modal-body textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #c0bfcc;
+    border-radius: 5px;
+    background: rgba(240, 240, 240, 0.8);
+    transition: border-color 0.3s ease;
+}
+
+.modal-body input:focus,
+.modal-body select:focus,
+.modal-body textarea:focus {
+    border-color: #4d79ff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(77, 121, 255, 0.5);
+}
+
+
+/* Footer Section */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to right, #000000, #c0bfcc);
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    padding: 15px;
+    border-top: 3px solid #bb6d0d;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+footer p {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+footer:hover {
+    background: linear-gradient(to right, #4d79ff, #c0bfcc);
+    color: #ffbf00;
+    transition: all 0.5s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    footer {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+}
+
+
+/* Input Fields */
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #c0bfcc;
+    border-radius: 6px;
+    background: rgba(240, 240, 240, 0.9);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Input Fields Focus Styles */
+input:focus, select:focus, textarea:focus {
+    border-color: #4d79ff;
+    box-shadow: 0 0 10px rgba(77, 121, 255, 0.5);
+    outline: none;
+}
+
+/* Error Messages */
+#msg {
+    color: red;
+    font-weight: bold;
+    margin: 10px 0;
+    text-shadow: 0 0 2px rgba(255, 0, 0, 0.5);
+}
+
+/* Form Section Spacing */
+.modal-body > p {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+
+/* Registered Events Section */
+.registered-box {
+    background: linear-gradient(150deg, #ffe5b4, #d9c2a5);
+    border: 3px solid #bb6d0d;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.registered-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Registered Events Text Styling */
+.registered-box h6 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4d79ff;
+}
+
+.registered-box p {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* Event Options (Edit/Delete) */
+.options i {
+    font-size: 1.2rem;
+    color: #4d4d4d;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.options i:hover {
+    color: #ff5050;
+    transform: scale(1.2);
+}
+
+
+/* Animation for Fade In Effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animation for Smooth Slide */
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Applying Animation to Cards */
+#tasks div {
+    animation: fadeIn 1s ease-in-out, slideIn 0.5s ease-in;
+}
+
+/* Hover Effects for Interactive Elements */
+.navbar a:hover {
+    color: #ffbf00;
+    text-shadow: 0 0 10px #ffbf00;
+}
+
+.options i:hover {
+    color: #ff5050;
+    transform: rotate(10deg) scale(1.2);
+}
+
+.button-84:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Responsive Navigation Bar */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+/* Responsive Cards and Containers */
+@media (max-width: 768px) {
+    #tasks {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    #tasks div {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    footer {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+}
+
+/* Responsive Modal Adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: auto;
+    }
+
+    .modal-header {
+        font-size: 1.2rem;
+    }
+
+    .modal-body input,
+    .modal-body select,
+    .modal-body textarea {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* Task Cards */
+#tasks div {
+    background: linear-gradient(to bottom right, #f0f8ff, #c0bfcc);
+    border: 2px solid #8e5b34;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+#tasks div:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to bottom right, #e5e5e5, #d9c2a5);
+}
+
+#tasks h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+#tasks p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+#tasks span {
+    font-size: 0.9rem;
+    color: #888;
+    font-style: italic;
+}
+
+/* Event Images in Cards */
+#tasks img {
+    max-height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+#tasks img:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+
+/* Modal Registration Form */
+.modal-body {
+    padding: 20px;
+    background: linear-gradient(to bottom, #f7f7f7, #e5e5e5);
+    border-radius: 10px;
+}
+
+.modal-body input, .modal-body select, .modal-body textarea {
+    font-size: 1rem;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 2px solid #c0bfcc;
+    border-radius: 6px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.modal-body input:focus, .modal-body select:focus, .modal-body textarea:focus {
+    border-color: #4d79ff;
+    box-shadow: 0 0 10px rgba(77, 121, 255, 0.4);
+    outline: none;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.modal-footer button {
+    background: linear-gradient(to right, #ffa500, #ff4500);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 20px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.modal-footer button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Registered Events Section */
+.registered-box {
+    background: linear-gradient(to bottom right, #ffd1dc, #ffc0cb);
+    border: 2px solid #b5651d;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease-in-out;
+}
+
+.registered-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to bottom right, #ffe4e1, #fffafa);
+}
+
+.registered-box h6 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #4d4d4d;
+    margin-bottom: 8px;
+}
+
+.registered-box p {
+    font-size: 1rem;
+    margin-bottom: 6px;
+    color: #555;
+}
+
+/* Flexbox for Registered Tasks */
+#registeredTasks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+
+/* Task Options */
+.options {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    padding-top: 10px;
+}
+
+.options i {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #4d4d4d;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.options i:hover {
+    color: #ffa500;
+    transform: scale(1.2);
+}
+
+/* Task Box Styling */
+.task-box {
+    background: linear-gradient(to bottom, #f7f0e9, #d9c5a8);
+    border: 2px solid #8e5b34;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Buttons in Cards */
+.task-box button,
+.event-box button {
+    background: linear-gradient(to right, #ff7f50, #ff4500);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* Hover Effects for Buttons */
+.task-box button:hover,
+.event-box button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(to right, #ff4500, #ff7f50);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.task-box button:active,
+.event-box button:active {
+    transform: scale(1);
+    background: #ff6347;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Icon Enhancements for Options */
+.options i {
+    font-size: 1.2rem;
+    color: #4d4d4d;
+    transition: color 0.3s ease, transform 0.3s ease-in-out;
+}
+
+.options i:hover {
+    color: #ffbf00;
+    transform: rotate(15deg) scale(1.2);
+}
+
+/* Smooth Transition for All Elements */
+*, *:before, *:after {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Event Image Interaction */
+#tasks img:hover {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Input Field Animation */
+input:focus, select:focus, textarea:focus {
+    animation: pulse 0.5s infinite alternate;
+    border-color: #4d79ff;
+    box-shadow: 0 0 8px rgba(77, 121, 255, 0.4);
+}
+
+/* Pulse Keyframe Animation */
+@keyframes pulse {
+    from {
+        border-width: 2px;
+    }
+    to {
+        border-width: 3px;
+    }
+}
+
+
+/* Modal Transition Effects */
+.modal {
+    transition: opacity 0.4s ease-in-out;
+}
+
+.modal.show {
+    animation: fadeInModal 0.5s ease-in-out;
+}
+
+/* Fade-In Animation for Modal */
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Close Button Enhancement */
+.modal-header .btn-close {
+    filter: brightness(90%);
+    transition: transform 0.3s ease;
+}
+
+.modal-header .btn-close:hover {
+    transform: rotate(90deg) scale(1.1);
+}
+
+
+/* Dropdown Menu */
+select {
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid #c0bfcc;
+    border-radius: 6px;
+    font-size: 1rem;
+    padding: 10px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+select:focus {
+    border-color: #4d79ff;
+    box-shadow: 0 0 8px rgba(77, 121, 255, 0.4);
+}
+
+/* Dropdown Options */
+select option {
+    padding: 10px;
+    font-weight: bold;
+    background: #f7f7f7;
+    color: #333;
+}
+
+select option:hover {
+    background: #4d79ff;
+    color: white;
+}
+
+
+/* Notification Box */
+.notification {
+    background: rgba(255, 215, 0, 0.8);
+    border-radius: 8px;
+    padding: 15px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* Alert Message */
+.alert-danger {
+    background: rgba(255, 0, 0, 0.8);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* Success Message */
+.alert-success {
+    background: rgba(0, 255, 127, 0.8);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    z-index: inherit;
+}
+
+.alert-success:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: inherit;
+}
+
+/* Container Background */
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Main Titles */
+h4, h5, h6 {
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #4d4d4d;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Subtitles */
+h5 {
+    font-size: 1.5rem;
+    color: #2c2c2c;
+}
+
+h6 {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Header Animation */
+.header:hover {
+    text-shadow: 0 0 10px rgba(77, 121, 255, 0.7);
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Link Hover Animations */
+.navbar a:hover {
+    color: #ffbf00;
+    text-shadow: 0 0 15px #ffbf00;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+/* Container Hover Animations */
+.container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.95);
+    transition: all 0.4s ease-in-out;
+}
+
+/* Footer Links Hover */
+footer:hover {
+    background: linear-gradient(to right, #4d79ff, #c0bfcc);
+    color: #ffa500;
+    text-shadow: 0 0 8px rgba(255, 165, 0, 0.7);
+    transition: all 0.4s ease-in-out;
+}
+
+
+/* CSS */
+.button-84 {
+  align-items: center;
+  background-color: initial;
+  background-image: linear-gradient(#464d55, #25292e);
+  border-radius: 8px;
+  border-width: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .1),0 3px 6px rgba(0, 0, 0, .05);
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  font-family: expo-brand-demi,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 18px;
+  height: 40px;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 32px;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all 150ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-84:hover {
+  box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
+  opacity: .85;
+}
+
+.button-84:active {
+  outline: 0;
+}
+
+.button-84:focus {
+  box-shadow: rgba(0, 0, 0, .5) 0 0 0 3px;
+}
+
+@media (max-width: 420px) {
+  .button-84 {
+    height: 48px;
+  }
+}
+
+
